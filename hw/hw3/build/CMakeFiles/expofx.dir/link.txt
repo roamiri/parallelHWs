@@ -1,0 +1,1 @@
+/usr/lib64/ccache/cc  -Wall -O2 -g   CMakeFiles/expofx.dir/integer.c.o CMakeFiles/expofx.dir/main.c.o  -o expofx -rdynamic -lm 

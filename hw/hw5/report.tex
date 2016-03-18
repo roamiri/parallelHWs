@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\begin{document}
+\title{HW5,1D Stencil with Shared Memory}
+\author{Roohollah Amiri}
+\maketitle
+
+\section{Introduction}
+In this program the effect of using shared memory in a gpu architecture .
+
+\section{Compilation and Results}
+
+Just make a build directory and run cmake from it: mkdir build;cd build;cmake ../;make;
+The output of program consists of two tables for part A and B. The check flag indicates if the output vector has correct values or not.
+The output of running the code on Redhawk:
+PART A:
+\begin{table}[h]
+\centering\caption{CpuVsGpu}\label{my-label}
+\begin{tabular}{lccc}
+N         & CPU(mS)    & GPU(global)(mS) & GPU(shared)(mS) \\
+100       & 0.000954   & 0.035424        & 0.011584        \\
+10000     & 0.061989   & 0.015744        & 0.011904        \\
+100000    & 0.617981   & 0.023328        & 0.020992        \\
+1000000   & 5.390882   & 0.172192        & 0.114112        \\
+10000000  & 60.554028  & 1.664640        & 1.041696        \\
+100000000 & 595.370054 & 16.582272       & 9.215136       
+\end{tabular}
+\end{table}
+PART B: Num Elements=100000000
+
+\begin{table}[h]
+\centering\caption{Gpu with different number of threads/block}\label{my-label}
+\begin{tabular}{lccc}
+threads/block  & GPU(global)(mS) & GPU(shared)(mS)    \\
+16             &  90.372322      &  64.004959         \\
+64             &  40.306847      &  15.348064         \\
+256            &  11.405152      &  6.742432          \\
+512            &  11.100032      &  7.432704          \\
+1024           &  14.619360      &  8.975424 
+\end{tabular}
+\end{table}
+
+\section{Conclusion} \label{conclusion}
+
+This examples shows the effect of using shared memory and improving the program by using it.
+
+\bibliography{myReferences}
+\bibliographystyle{ieeetr}
+
+%\begin{thebibliography}{4}
+%
+%\bibitem{osher}
+%S.Osher, R.Fedkiw, 
+%\emph{Level Set Methods and Dynamic Implicit Surfaces}. 
+%Springer-Verlag New York, Inc, 2003.
+%
+%\bibitem{sethian}
+%J.A.Sethian, 
+%\emph{Level Set Methods and Fast Marching Methods}, 
+%Cambridge University Press, 1999.
+%
+%
+%\bibitem{jones}
+%M.W. Jones, J.A. Bærentzen, M.Šrámek, 
+%\emph{3D Distance Fields: A Survey of Techniques and Applications, Visualization and Computer Graphics}, 
+%IEEE Transactions on. 12 Issue: 4 (2006) 581-599.
+%
+%\end{thebibliography}
+
+\end{document}
+

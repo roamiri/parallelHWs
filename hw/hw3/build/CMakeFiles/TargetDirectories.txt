@@ -1,0 +1,1 @@
+/home/roohi/Documents/BSU/Spring2016/parallel/hw/hw3/build/CMakeFiles/expofx.dir
